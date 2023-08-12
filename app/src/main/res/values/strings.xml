@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GeneralKnowledge</string>
+    <string name="landingImg">LandingImg</string>
+    <string name="are_you_ready_to_test_your_knowledge">Are you ready to test your knowledge?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="or">OR</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet? <font color="#FF000000">Sign up now</font> </string>
+    <string name="forgot_password"><font color="#FF000000"> <u>Forgot password?</u></font> </string>
+    <string name="name">Name</string>
+    <string name="create_account">Create account</string>
+    <string name="createAccount">Create Account</string>
+    <string name="emailForSignUp">Email</string>
+    <string name="email_box_SignUp">Email</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+</resources>
