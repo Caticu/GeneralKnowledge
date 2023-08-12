@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "921006273982",
+    "project_id": "general-knowledge-ae032",
+    "storage_bucket": "general-knowledge-ae032.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921006273982:android:4893bdeb247a351c86b5ef",
+        "android_client_info": {
+          "package_name": "com.example.generalknowledge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921006273982-4oa95gu34c1cpcn1fbs7uggulf4otq6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKs0sMe7ihADXX1UCE8DyfG4j5Pprmpg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921006273982-4oa95gu34c1cpcn1fbs7uggulf4otq6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

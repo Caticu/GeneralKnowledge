@@ -31,14 +31,10 @@ public class LandingActivity extends AppCompatActivity {
         text.startAnimation(animation);
 
         // The animation will be 5 seconds, wait 1 sec and then execute the code to open the main activity
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run()
-            {
-               Intent intent = new Intent(LandingActivity.this,Login_Page.class);
-               startActivity(intent);
-               finish();
-            }
+        new Handler().postDelayed(() -> {
+           Intent intent = new Intent(LandingActivity.this,Login_Page.class);
+           startActivity(intent);
+           finish();
         }, 6000);
 
     }

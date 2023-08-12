@@ -22,7 +22,7 @@
         app:subtitleTextColor="#000000"
         app:theme="@style/Login_Page"
         app:title="Sign Up"
-        app:titleTextAppearance="@style/ToolbarTitleCentered"
+
         app:titleTextColor="#000000" />
 
     <TextView
