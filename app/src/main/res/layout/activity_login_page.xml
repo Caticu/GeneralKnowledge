@@ -64,7 +64,8 @@
         android:text="@string/password"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        tools:text="@string/password" />
+        tools:text="@string/password"
+        android:autofillHints="Enter your email password"/>
 
     <EditText
         android:id="@+id/editTextTextPassword"

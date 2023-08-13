@@ -15,9 +15,13 @@
         android:theme="@style/Theme.GeneralKnowledge"
         tools:targetApi="31">
         <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false"
-            android:parentActivityName=".Login_Page"/>
+            android:parentActivityName=".Login_Page" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false"

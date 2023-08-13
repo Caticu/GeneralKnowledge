@@ -1,4 +1,4 @@
-{
+  {
   "project_info": {
     "project_number": "921006273982",
     "project_id": "general-knowledge-ae032",
@@ -7,14 +7,22 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:921006273982:android:4893bdeb247a351c86b5ef",
+        "mobilesdk_app_id": "1:921006273982:android:75e4b2deb1a69cd886b5ef",
         "android_client_info": {
           "package_name": "com.example.generalknowledge"
         }
       },
       "oauth_client": [
         {
-          "client_id": "921006273982-4oa95gu34c1cpcn1fbs7uggulf4otq6h.apps.googleusercontent.com",
+          "client_id": "921006273982-k5i4ocm6ljv4s1jpi16jcd0o0mmkavah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.generalknowledge",
+            "certificate_hash": "64b1481af7eaae286e0f794a09e50d0449c604a1"
+          }
+        },
+        {
+          "client_id": "921006273982-f0jlfrl8738ngo9sav2ef0akjohak81q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

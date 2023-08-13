@@ -21,4 +21,6 @@
     <string name="forgot_your_password">Forgot your Password?</string>
     <string name="enter_your_email_address_to_reset_your_password">Enter your email address to reset your password</string>
     <string name="submit">Submit</string>
+    <string name="start">Start</string>
+    <string name="sign_out">Sign out</string>
 </resources>
