@@ -68,7 +68,8 @@ public class Login_Page extends AppCompatActivity
 
         forgotPassword.setOnClickListener(view ->
         {
-
+            Intent intent = new Intent(Login_Page.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
     }
 
