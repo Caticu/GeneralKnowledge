@@ -16,5 +16,6 @@
     <string name="enter_your_name">Enter your name</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="enter_your_password">Enter your password</string>
-    <string name="log_in">Log In</string>
+    <string name="log_in">Login</string>
+    <string name="please_sign_in_to_continue">Please sign in to continue</string>
 </resources>

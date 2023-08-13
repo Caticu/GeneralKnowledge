@@ -35,7 +35,7 @@ public class LandingActivity extends AppCompatActivity {
            Intent intent = new Intent(LandingActivity.this,Login_Page.class);
            startActivity(intent);
            finish();
-        }, 6000);
+        }, 4000);
 
     }
 }
