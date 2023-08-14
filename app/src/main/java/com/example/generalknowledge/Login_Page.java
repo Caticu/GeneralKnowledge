@@ -32,6 +32,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login_Page extends AppCompatActivity
 {
+    // Define the things used in xml file
     EditText mail;
     EditText password;
     Button signIn;
@@ -53,6 +54,7 @@ public class Login_Page extends AppCompatActivity
 
         registerActivityForGoogle();
 
+        // Bind the elements from xml
         mail = findViewById(R.id.editTextTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
         signIn = findViewById(R.id.LogInButton);
@@ -64,7 +66,8 @@ public class Login_Page extends AppCompatActivity
         progressBarSignIn.setVisibility(View.INVISIBLE);
 
 
-
+        // Listener for sign in button
+        // It is using firebase to log-in
         signIn.setOnClickListener(view ->
         {
             String userEmail = mail.getText().toString();
@@ -72,17 +75,20 @@ public class Login_Page extends AppCompatActivity
             signInWithFirebase(userEmail, userPassword);
         });
 
+        // Listener to sign in using google account
         signInGoogle.setOnClickListener(view ->
         {
             signInWithGoogle();
         });
 
+        // Listener to create an account
         signUp.setOnClickListener(view ->
         {
             Intent intent =  new Intent(Login_Page.this, SignUpActivity.class);
             startActivity(intent);
         });
 
+        // Listener for reseting password
         forgotPassword.setOnClickListener(view ->
         {
             Intent intent = new Intent(Login_Page.this, ForgotPasswordActivity.class);
@@ -90,6 +96,12 @@ public class Login_Page extends AppCompatActivity
         });
     }
 
+
+    /**
+     * Sign-in using google account
+     * First set up sign in options
+     * Tjen start a new intent with the launcher from google
+     */
     private void signInWithGoogle()
     {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -97,16 +109,14 @@ public class Login_Page extends AppCompatActivity
 
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
-        signInWithGoogleDone();
-
-    }
-
-    private void signInWithGoogleDone()
-    {
         Intent intent = googleSignInClient.getSignInIntent();
         activityResultLauncher.launch(intent);
+
     }
 
+    /**
+     * Method to register activity for google sign-in
+     */
     public void registerActivityForGoogle()
     {
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>()
@@ -128,6 +138,10 @@ public class Login_Page extends AppCompatActivity
         });
     }
 
+    /**
+     * Method to sign-in with google credentials using firebase
+     * @param task
+     */
     private void firebaseSignInWithGoogle(Task<GoogleSignInAccount> task)
     {
         try
@@ -147,6 +161,10 @@ public class Login_Page extends AppCompatActivity
         }
     }
 
+    /**
+     * Method to authenticate with Firebase using Google credentials
+     * @param account
+     */
     private void firebaseGoogleAccount(GoogleSignInAccount account)
     {
         AuthCredential authCredential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
@@ -202,8 +220,6 @@ public class Login_Page extends AppCompatActivity
             }
         });
     }
-
-
 
     /**
      * On start method checks if the user was already sign in

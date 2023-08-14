@@ -8,71 +8,22 @@
 
 
     <TextView
-        android:id="@+id/CorrectAnswersScoreTextView"
-        android:layout_width="20dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="66dp"
-        android:text="0"
-        android:textColor="#070707"
-        app:layout_constraintBottom_toBottomOf="@+id/CorrectAnswersTextView"
-        app:layout_constraintEnd_toStartOf="@+id/WrongAnswersTextView"
-        app:layout_constraintStart_toEndOf="@+id/CorrectAnswersTextView"
-        app:layout_constraintTop_toTopOf="@+id/CorrectAnswersTextView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/CorrectAnswersTextView"
-        android:layout_width="110dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="11dp"
-        android:text="Correct Answers"
-        android:textColor="#070707"
-        app:layout_constraintEnd_toStartOf="@+id/CorrectAnswersScoreTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/WrongAnswersScoreTextView"
-        android:layout_width="20dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="197dp"
-        android:text="0"
-        android:textColor="#070707"
-        app:layout_constraintBottom_toTopOf="@+id/Answer1Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/WrongAnswersTextView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/WrongAnswersTextView"
-        android:layout_width="110dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="10dp"
-        android:text="Wrong Answers"
-        android:textColor="#070707"
-        app:layout_constraintBottom_toBottomOf="@+id/CorrectAnswersScoreTextView"
-        app:layout_constraintEnd_toStartOf="@+id/WrongAnswersScoreTextView"
-        app:layout_constraintStart_toEndOf="@+id/CorrectAnswersScoreTextView"
-        app:layout_constraintTop_toTopOf="@+id/CorrectAnswersScoreTextView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
         android:id="@+id/QuestionTextView"
-        android:layout_width="310dp"
-        android:layout_height="134dp"
-        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/textview"
         android:textAlignment="center"
         android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.473" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -88,70 +39,76 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="269dp" />
 
-    <ToggleButton
-        android:id="@+id/Answer1Button"
-        android:layout_width="348dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="21dp"
-        android:text="ToggleButton"
-        app:layout_constraintBottom_toTopOf="@+id/Answer2Button"
-        app:layout_constraintEnd_toEndOf="@+id/Answer2Button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Answer2Button"
-        app:layout_constraintTop_toBottomOf="@+id/WrongAnswersScoreTextView" />
-
-    <ToggleButton
-        android:id="@+id/Answer2Button"
-        android:layout_width="348dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="26dp"
-        android:text="ToggleButton"
-        app:layout_constraintBottom_toTopOf="@+id/Answer3Button"
-        app:layout_constraintEnd_toEndOf="@+id/Answer3Button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/Answer3Button"
-        app:layout_constraintTop_toBottomOf="@+id/Answer1Button" />
-
-    <ToggleButton
-        android:id="@+id/Answer3Button"
-        android:layout_width="348dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="20dp"
-        android:text="ToggleButton"
-        app:layout_constraintBottom_toTopOf="@+id/Answer4Button"
-        app:layout_constraintEnd_toEndOf="@+id/Answer4Button"
-        app:layout_constraintStart_toStartOf="@+id/Answer4Button"
-        app:layout_constraintTop_toBottomOf="@+id/Answer2Button" />
-
-    <ToggleButton
-        android:id="@+id/Answer4Button"
-        android:layout_width="348dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="92dp"
-        android:text="ToggleButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Answer3Button" />
-
     <Button
         android:id="@+id/NextQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="Next Question"
-        app:layout_constraintEnd_toEndOf="@+id/Answer4Button"
-        app:layout_constraintTop_toBottomOf="@+id/Answer4Button" />
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/next_question"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/EndQuizButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="End Quiz"
-        app:layout_constraintBottom_toBottomOf="@+id/NextQuestionButton"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/end_quiz"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Answer2Button"
+        android:layout_width="353dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/answer2"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/Answer3Button"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="@+id/Answer3Button"
+        app:layout_constraintTop_toBottomOf="@+id/Answer1Button" />
+
+    <Button
+        android:id="@+id/Answer3Button"
+        android:layout_width="353dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/answer3"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/Answer4Button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Answer4Button"
-        app:layout_constraintTop_toTopOf="@+id/NextQuestionButton" />
+        app:layout_constraintTop_toBottomOf="@+id/Answer2Button" />
+
+    <Button
+        android:id="@+id/Answer4Button"
+        android:layout_width="353dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="106dp"
+        android:text="@string/answer4"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Answer3Button"
+        app:layout_constraintVertical_bias="0.642" />
+
+    <Button
+        android:id="@+id/Answer1Button"
+        android:layout_width="353dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/answer1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/Answer2Button"
+        app:layout_constraintStart_toStartOf="@+id/Answer2Button"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:text="@string/answer1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

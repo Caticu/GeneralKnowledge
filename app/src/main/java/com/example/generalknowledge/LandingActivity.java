@@ -22,6 +22,7 @@ public class LandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
+        // Find the image and text view from the xml file
         image = findViewById(R.id.LandingPageImg);
         text = findViewById(R.id.LandingPageText);
 
@@ -30,12 +31,12 @@ public class LandingActivity extends AppCompatActivity {
 
         text.startAnimation(animation);
 
-        // The animation will be 5 seconds, wait 1 sec and then execute the code to open the main activity
+        // The animation will be 4 seconds, wait 1 sec and then execute the code to open the main activity
         new Handler().postDelayed(() -> {
            Intent intent = new Intent(LandingActivity.this,Login_Page.class);
            startActivity(intent);
            finish();
-        }, 4000);
+        }, 1000);
 
     }
 }

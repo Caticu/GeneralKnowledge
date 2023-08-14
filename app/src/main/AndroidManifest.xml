@@ -15,9 +15,14 @@
         android:theme="@style/Theme.GeneralKnowledge"
         tools:targetApi="31">
         <activity
-            android:name=".QuizActivity"
+            android:name=".ResetPassword"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Quiz_Page" />
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false"
@@ -42,7 +47,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Login_Page"/>
     </application>
 
 </manifest>

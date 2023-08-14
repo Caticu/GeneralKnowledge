@@ -1,5 +1,6 @@
 package com.example.generalknowledge;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.generalknowledge.User.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,6 +42,8 @@ public class SignUpActivity extends AppCompatActivity
         //Set the progress bar invisible at first
         progressBar.setVisibility(View.INVISIBLE);
 
+
+        User user = User.getInstance();
         createAccountButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -50,6 +54,8 @@ public class SignUpActivity extends AppCompatActivity
 
                 String userEmail = email.getText().toString();
                 String userPassword = password.getText().toString();
+                String userName = name.getText().toString();
+                User.getInstance().setName(userName);
                 CreateAccountFireBase(userEmail, userPassword);
             }
         });

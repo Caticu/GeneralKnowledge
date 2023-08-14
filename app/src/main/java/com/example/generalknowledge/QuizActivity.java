@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,10 +32,10 @@ public class QuizActivity extends AppCompatActivity
     TextView correctAnswers;
     TextView wrongAnswers;
     TextView question;
-    ToggleButton answer1;
-    ToggleButton answer2;
-    ToggleButton answer3;
-    ToggleButton answer4;
+    Button answer1;
+    Button answer2;
+    Button answer3;
+    Button answer4;
     Button nextQuestion;
     Button endGame;
 
@@ -45,8 +47,7 @@ public class QuizActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        correctAnswers = findViewById(R.id.CorrectAnswersScoreTextView);
-        wrongAnswers = findViewById(R.id.WrongAnswersScoreTextView);
+
         question = findViewById(R.id.QuestionTextView);
         answer1 = findViewById(R.id.Answer1Button);
         answer2 = findViewById(R.id.Answer2Button);
@@ -55,7 +56,156 @@ public class QuizActivity extends AppCompatActivity
         nextQuestion = findViewById(R.id.NextQuestionButton);
         endGame = findViewById(R.id.EndQuizButton);
 
+        List<Button> listOfButtons = new ArrayList<>();
+        listOfButtons.add(answer1);
+        listOfButtons.add(answer2);
+        listOfButtons.add(answer3);
+        listOfButtons.add(answer4);
+
         getQuestionAndAnswer();
+
+
+        answer1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
+                if (answer1.getText() == correctAnswer)
+                {
+                    answer1.setBackgroundColor(Color.GREEN);
+                }
+                else
+                {
+                    answer1.setBackgroundColor(Color.RED);
+                    for (Button button : listOfButtons)
+                    {
+                        String buttonText = button.getText().toString();
+                        if(buttonText.equals(correctAnswer))
+                        {
+                            button.setBackgroundColor(Color.GREEN);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    startActivity(intent);
+                                }
+                            }, 3000);
+                        }
+                    }
+                }
+            }
+        });
+
+
+        answer2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
+                if (answer2.getText() == correctAnswer)
+                {
+                    answer2.setBackgroundColor(Color.GREEN);
+
+                }
+                else
+                {
+                    answer2.setBackgroundColor(Color.RED);
+                    for (Button button : listOfButtons)
+                    {
+                        String buttonText = button.getText().toString();
+                        if(buttonText.equals(correctAnswer))
+                        {
+                            button.setBackgroundColor(Color.GREEN);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    startActivity(intent);
+                                }
+                            }, 3000);
+                        }
+                    }
+                }
+            }
+        });
+        answer3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
+                if (answer3.getText() == correctAnswer)
+                {
+                    answer3.setBackgroundColor(Color.GREEN);
+
+                }
+                else
+                {
+                    answer3.setBackgroundColor(Color.RED);
+                    for (Button button : listOfButtons)
+                    {
+                        String buttonText = button.getText().toString();
+                        if(buttonText.equals(correctAnswer))
+                        {
+                            button.setBackgroundColor(Color.GREEN);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    startActivity(intent);
+                                }
+                            }, 3000);
+                        }
+                    }
+                }
+            }
+        });
+        answer4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
+                if (answer4.getText() == correctAnswer)
+                {
+                    answer4.setBackgroundColor(Color.GREEN);
+                    for (Button button : listOfButtons)
+                    {
+                        String buttonText = button.getText().toString();
+                        if(buttonText.equals(correctAnswer))
+                        {
+                            button.setBackgroundColor(Color.GREEN);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    startActivity(intent);
+                                }
+                            }, 3000);
+                        }
+                    }
+
+                }
+                else
+                {
+                    answer4.setBackgroundColor(Color.RED);
+                }
+            }
+        });
 
         endGame.setOnClickListener(new View.OnClickListener()
         {
@@ -73,6 +223,8 @@ public class QuizActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -106,7 +258,9 @@ public class QuizActivity extends AppCompatActivity
     private void displayQuestion(QuestionBody questionBody) {
         // Populate UI elements with question and answer options
         Object questionText = questionBody.getQuestionToAsk();
-        question.setText(questionText.toString());
+        String questionTextUnedited = questionText.toString();
+        String questionEdited = editQuestion(questionTextUnedited);
+        question.setText(questionEdited);
 
         List<String> answerOptions = new ArrayList<>();
         answerOptions.add(questionBody.getCorrectAnswer());
@@ -119,18 +273,11 @@ public class QuizActivity extends AppCompatActivity
         answer4.setText(answerOptions.get(3));
     }
 
-    private void displayNextQuestion() {
-        // Move to the next question
-        currentQuestionIndex++;
-
-        // Check if there are more questions
-        if (currentQuestionIndex < questionBodies.size()) {
-            // Display the next question
-            displayQuestion(questionBodies.get(currentQuestionIndex));
-        } else {
-            // Handle end of questions
-        }
+    public String editQuestion(String text) {
+        String cleanedText = text.replace("{text=", "").replace("}", "");
+        return cleanedText;
     }
+
 
 }
 
