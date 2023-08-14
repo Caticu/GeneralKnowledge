@@ -198,8 +198,6 @@ public class Login_Page extends AppCompatActivity
         progressBarSignIn.setVisibility(View.VISIBLE);
         signIn.setClickable(false);
 
-
-
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
         {
             @Override

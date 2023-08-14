@@ -10,6 +10,7 @@ public  class QuestionBody
     public String difficulty;
     public List<String> regions;
     public boolean isNiche;
+
     public Object question;
 
     public String correctAnswer;
