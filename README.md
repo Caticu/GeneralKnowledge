@@ -23,3 +23,6 @@ Not implemented user stories:
 11. As a user, I want to see how many questions I answered correctly.
 12. As a user, I want to see how many questions I answered incorrectly.
 13. As a user, I want the option to take out two wrong answers so that I feel I am in "Who wants to be a millionaire?" Tv show. 
+
+
+YOUTUBE LINK: https://www.youtube.com/watch?v=CIxqeZuXHm8
