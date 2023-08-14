@@ -90,16 +90,6 @@ public class QuizActivity extends AppCompatActivity
                         if(buttonText.equals(correctAnswer))
                         {
                             button.setBackgroundColor(Color.GREEN);
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
-                                    startActivity(intent);
-                                }
-                            }, 3000);
                         }
                     }
                 }
@@ -128,16 +118,6 @@ public class QuizActivity extends AppCompatActivity
                         if(buttonText.equals(correctAnswer))
                         {
                             button.setBackgroundColor(Color.GREEN);
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
-                                    startActivity(intent);
-                                }
-                            }, 3000);
                         }
                     }
                 }
@@ -164,16 +144,6 @@ public class QuizActivity extends AppCompatActivity
                         if(buttonText.equals(correctAnswer))
                         {
                             button.setBackgroundColor(Color.GREEN);
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
-                                    startActivity(intent);
-                                }
-                            }, 3000);
                         }
                     }
                 }
@@ -189,30 +159,19 @@ public class QuizActivity extends AppCompatActivity
                 if (answer4.getText() == correctAnswer)
                 {
                     answer4.setBackgroundColor(Color.GREEN);
+
+                }
+                else
+                {
+                    answer4.setBackgroundColor(Color.RED);
                     for (Button button : listOfButtons)
                     {
                         String buttonText = button.getText().toString();
                         if(buttonText.equals(correctAnswer))
                         {
                             button.setBackgroundColor(Color.GREEN);
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
-                                    startActivity(intent);
-
-                                }
-                            }, 3000);
                         }
                     }
-
-                }
-                else
-                {
-                    answer4.setBackgroundColor(Color.RED);
                 }
             }
         });
@@ -324,18 +283,6 @@ public class QuizActivity extends AppCompatActivity
                     {
                         button.setBackgroundColor(Color.GREEN);
                     }
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
-                            startActivity(intent);
-                            resetTime();
-
-                        }
-                    }, 5000);
                 }
             }
         }.start();
