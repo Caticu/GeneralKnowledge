@@ -2,24 +2,21 @@ package com.example.generalknowledge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
-import com.example.generalknowledge.Api.Question;
 import com.example.generalknowledge.Api.QuestionAPI;
 import com.example.generalknowledge.Api.QuestionBody;
 import com.example.generalknowledge.Api.RetrofitClient;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,8 +26,7 @@ import retrofit2.Response;
 
 public class QuizActivity extends AppCompatActivity
 {
-    TextView correctAnswers;
-    TextView wrongAnswers;
+    TextView timerCounter;
     TextView question;
     Button answer1;
     Button answer2;
@@ -38,6 +34,13 @@ public class QuizActivity extends AppCompatActivity
     Button answer4;
     Button nextQuestion;
     Button endGame;
+
+
+
+    CountDownTimer countDownTimer;
+    private static final long TotalTime = 60000;
+    Boolean timerIsRunning;
+    long leftTime = TotalTime;
 
     private List<QuestionBody> questionBodies;
     private int currentQuestionIndex = 0;
@@ -55,12 +58,14 @@ public class QuizActivity extends AppCompatActivity
         answer4 = findViewById(R.id.Answer4Button);
         nextQuestion = findViewById(R.id.NextQuestionButton);
         endGame = findViewById(R.id.EndQuizButton);
+        timerCounter = findViewById(R.id.TimerCounterTextView);
 
         List<Button> listOfButtons = new ArrayList<>();
         listOfButtons.add(answer1);
         listOfButtons.add(answer2);
         listOfButtons.add(answer3);
         listOfButtons.add(answer4);
+
 
         getQuestionAndAnswer();
 
@@ -70,6 +75,7 @@ public class QuizActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                pauseTimer();
                 String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
                 if (answer1.getText() == correctAnswer)
                 {
@@ -106,6 +112,7 @@ public class QuizActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                pauseTimer();
                 String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
                 if (answer2.getText() == correctAnswer)
                 {
@@ -141,6 +148,7 @@ public class QuizActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                pauseTimer();
                 String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
                 if (answer3.getText() == correctAnswer)
                 {
@@ -176,6 +184,7 @@ public class QuizActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                pauseTimer();
                 String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
                 if (answer4.getText() == correctAnswer)
                 {
@@ -194,6 +203,7 @@ public class QuizActivity extends AppCompatActivity
                                 {
                                     Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
                                     startActivity(intent);
+
                                 }
                             }, 3000);
                         }
@@ -225,7 +235,7 @@ public class QuizActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
                 startActivity(intent);
-
+                resetTime();
             }
         });
     }
@@ -271,6 +281,7 @@ public class QuizActivity extends AppCompatActivity
         answer2.setText(answerOptions.get(1));
         answer3.setText(answerOptions.get(2));
         answer4.setText(answerOptions.get(3));
+        startCounter();
     }
 
     public String editQuestion(String text) {
@@ -279,5 +290,76 @@ public class QuizActivity extends AppCompatActivity
     }
 
 
+    public void startCounter() {
+        countDownTimer = new CountDownTimer(leftTime, 1000) {
+            @Override
+            public void onTick(long l) {
+                leftTime = l;
+                updateCountDown();
+            }
+
+            @Override
+            public void onFinish() {
+                List<Button> listOfButtons = new ArrayList<>();
+                listOfButtons.add(answer1);
+                listOfButtons.add(answer2);
+                listOfButtons.add(answer3);
+                listOfButtons.add(answer4);
+
+                timerIsRunning = false;
+                pauseTimer();
+                String correctAnswer = questionBodies.get(currentQuestionIndex).getCorrectAnswer();
+
+                Object questionText = questionBodies.get(currentQuestionIndex).getQuestionToAsk();
+                String questionTextUnedited = questionText.toString();
+                String questionEdited = editQuestion(questionTextUnedited);
+
+
+
+                question.setText(questionEdited + '\n' + "You ran out of time!");
+                for (Button button : listOfButtons)
+                {
+                    String buttonText = button.getText().toString();
+                    if (buttonText.equals(correctAnswer))
+                    {
+                        button.setBackgroundColor(Color.GREEN);
+                    }
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                            startActivity(intent);
+                            resetTime();
+
+                        }
+                    }, 5000);
+                }
+            }
+        }.start();
+
+        timerIsRunning = true;
+    }
+
+
+    public void resetTime()
+    {
+        leftTime = TotalTime;
+        updateCountDown();
+    }
+
+    public void updateCountDown()
+    {
+        int seconds = (int) ((leftTime/1000) % 60);
+        timerCounter.setText(String.valueOf(seconds));
+    }
+
+    public void pauseTimer()
+    {
+        countDownTimer.cancel();
+        timerIsRunning = false;
+    }
 }
 
